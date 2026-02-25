@@ -28,13 +28,23 @@
 }
 
 /* Header counter badge — shows viewing range next to model name */
+.lgc-model-stack {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+  vertical-align: top;
+}
+
 .lgc-counter-controls {
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 6px;
-  margin-left: 6px;
+  margin: 0;
   vertical-align: middle;
+  max-width: min(calc(100vw - 24px), 720px);
 }
 
 .lgc-counter-badge {

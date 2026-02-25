@@ -357,6 +357,21 @@
     clearKeptButton.disabled = keptMessageIds.size === 0;
   }
 
+  function ensureModelButtonStack(modelBtn) {
+    if (!modelBtn?.parentElement) return null;
+
+    const currentParent = modelBtn.parentElement;
+    if (currentParent.classList?.contains('lgc-model-stack')) {
+      return currentParent;
+    }
+
+    const stack = document.createElement('span');
+    stack.className = 'lgc-model-stack';
+    currentParent.insertBefore(stack, modelBtn);
+    stack.appendChild(modelBtn);
+    return stack;
+  }
+
   function toggleKeepLoadedOverride() {
     keepLoadedOverride = !keepLoadedOverride;
 
@@ -420,9 +435,14 @@
         : `${from}-${to} / ${total}`;
     }
 
-    // Inject next to the model switcher button
+    // Inject directly under the model picker (same left anchor)
     const modelBtn = document.querySelector('[data-testid="model-switcher-dropdown-button"]');
-    if (modelBtn && counterControls.parentElement !== modelBtn.parentElement) {
+    const anchor = ensureModelButtonStack(modelBtn);
+    if (
+      anchor &&
+      (counterControls.parentElement !== anchor ||
+        counterControls.previousElementSibling !== modelBtn)
+    ) {
       modelBtn.insertAdjacentElement('afterend', counterControls);
     }
   }
