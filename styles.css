@@ -1,0 +1,91 @@
+/* ============================================================
+   LongerGPTChats — Injected Page Styles
+   ============================================================ */
+
+/* Fade-in animation for messages appearing on scroll */
+@keyframes lgc-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lgc-revealed {
+  animation: lgc-fade-in 0.2s ease-out;
+}
+
+/* Sentinel element — invisible, used for IntersectionObserver */
+.lgc-sentinel {
+  height: 1px;
+  width: 100%;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Header counter badge — shows viewing range next to model name */
+.lgc-counter-controls {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.lgc-counter-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  margin-left: 0;
+  border-radius: 8px;
+  background: rgba(99, 102, 241, 0.15);
+  color: rgba(167, 139, 250, 0.9);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  pointer-events: auto;
+  user-select: none;
+  transition: opacity 0.2s ease;
+  vertical-align: middle;
+}
+
+.lgc-header-btn {
+  appearance: none;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  background: rgba(99, 102, 241, 0.08);
+  color: rgba(224, 231, 255, 0.92);
+  border-radius: 8px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.lgc-header-btn:hover {
+  background: rgba(99, 102, 241, 0.14);
+  border-color: rgba(129, 140, 248, 0.4);
+}
+
+.lgc-header-btn[data-active='true'] {
+  background: rgba(16, 185, 129, 0.14);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: rgba(167, 243, 208, 0.95);
+}
+
+.lgc-header-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+  border-color: rgba(148, 163, 184, 0.22);
+  background: rgba(148, 163, 184, 0.06);
+  color: rgba(203, 213, 225, 0.65);
+}

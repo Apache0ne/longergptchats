@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=280">
+  <title>LongerGPTChats Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="popup-header">
+      <div class="logo-row">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+        <h1>LongerGPTChats</h1>
+      </div>
+      <p class="subtitle">Smooth long conversations</p>
+    </div>
+
+    <!-- Master toggle -->
+    <div class="setting-row toggle-row">
+      <div class="setting-label">
+        <span class="label-text">Enable Extension</span>
+        <span class="label-hint" id="statusText">Active</span>
+      </div>
+      <label class="toggle-switch">
+        <input type="checkbox" id="enabledToggle" checked>
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Visible messages -->
+    <div class="setting-row">
+      <div class="setting-label">
+        <span class="label-text">Visible Messages</span>
+        <span class="label-hint">How many recent messages to keep rendered</span>
+      </div>
+      <div class="input-group">
+        <button class="step-btn minus" data-target="visibleCount" data-step="-1">−</button>
+        <input type="number" id="visibleCount" min="0" max="200" value="50" step="1">
+        <button class="step-btn plus" data-target="visibleCount" data-step="1">+</button>
+      </div>
+    </div>
+
+    <!-- Batch size -->
+    <div class="setting-row">
+      <div class="setting-label">
+        <span class="label-text">Load Batch Size</span>
+        <span class="label-hint">Messages revealed when scrolling up</span>
+      </div>
+      <div class="input-group">
+        <button class="step-btn minus" data-target="batchSize" data-step="-1">−</button>
+        <input type="number" id="batchSize" min="0" max="100" value="20" step="1">
+        <button class="step-btn plus" data-target="batchSize" data-step="1">+</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Save button -->
+    <button id="saveBtn" class="save-btn">
+      <span class="save-text">Save Settings</span>
+      <span class="save-check" aria-hidden="true">✓ Saved!</span>
+    </button>
+
+    <!-- Footer -->
+    <div class="popup-footer">
+      <span class="version">v1.0.0</span>
+      <span class="dot">·</span>
+      <span class="privacy">No data collected</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
