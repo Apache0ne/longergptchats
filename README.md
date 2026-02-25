@@ -1,4 +1,5 @@
-# I dont really like the scrolling its not as smooth as I would like but might refine later 
+- I dont really like the scrolling its not as smooth as I would like but might refine later
+- IF you want to see a message inbetween the context window set by `visible messages` in the popup just up it a bit. F**K the smooth scrolling 
 
 # LongerGPTChats: Install From GitHub (Chrome)
 
